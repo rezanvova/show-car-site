@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+{% load car_tags %}
+<html lang="ru">
+<head>
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'cars/css/styles.css' %}" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!-- Шапка сайта -->
+<header>
+    <div class="container">
+        <h1>CarWorld</h1>
+        <p>Ваш гид в мире автомобилей</p>
+    </div>
+</header>
+
+<!-- Навигация -->
+<nav>
+    <ul>
+        {% get_menu as menu %}
+        {% for m in menu %}
+            <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+
+<!-- Основной контент -->
+<main>
+    <section class="intro">
+        <h2>Добро пожаловать на CarWorld!</h2>
+        <p>Здесь вы найдете самые свежие новости об автомобилях, обзоры моделей и многое другое.</p>
+    </section>
+
+    <section class="popular-cars">
+        <h2>Модели</h2>
+        <div>
+            <!-- Content for popular cars -->
+        </div>
+    </section>
+</main>
+<div class="content-text">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- Футер -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 CarWorld. Все права защищены.</p>
+        <p>Свяжитесь с нами: <a href="mailto:info@carworld.com">info@carworld.com</a></p>
+    </div>
+</footer>
+</body>
+</html>
