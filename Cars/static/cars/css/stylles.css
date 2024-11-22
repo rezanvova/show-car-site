@@ -1,0 +1,212 @@
+/* Сброс стиddddddddлей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Шапка */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Навигация */
+nav {
+    background-color: #444;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Основной контент */
+main {
+    padding: 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Популярные модели */
+.popular-cars {
+    margin: 20px 0;
+}
+
+.popular-cars h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.car-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.car-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.car-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.car-item img {
+    width: 100%;
+    height: auto;
+}
+
+.car-item h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.car-item p {
+    padding: 0 10px 15px;
+    color: #555;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для ссылок */
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+/* Контейнер для страницы автомобиля */
+.container {
+    display: flex;
+    justify-content: center;  /* Центрируем по горизонтали */
+    align-items: center;      /* Центрируем по вертикали */
+    min-height: 100vh;         /* Устанавливаем минимальную высоту 100% экрана */
+    padding: 20px;
+}
+
+/* Карточка автомобиля */
+.car-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;  /* Ограничиваем максимальную ширину карточки */
+    width: 100%;       /* Карточка будет адаптироваться под размер контейнера */
+}
+
+/* Заголовок автомобиля */
+.car-header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Фото автомобиля */
+.car-photo img {
+    width: 100%;       /* Подгоняем изображение под ширину контейнера */
+    height: auto;      /* Поддерживаем пропорции изображения */
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Описание автомобиля */
+.car-description p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Стили для списка тегов */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1rem;
+    color: #444;
+    margin: 5px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #4caf50;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
