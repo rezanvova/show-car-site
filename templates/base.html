@@ -4,14 +4,14 @@
 <html lang="ru">
 <head>
     <title>{{ title }}</title>
-    <link type="text/css" href="{% static 'cars/css/styles.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'cars/css/styllles.css' %}" rel="stylesheet"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <!-- Шапка сайта -->
 <header>
-    <div class="container">
+    <div class="">
         <h1>CarWorld</h1>
         <p>Ваш гид в мире автомобилей</p>
     </div>
@@ -19,35 +19,39 @@
 
 <!-- Навигация -->
 <nav>
-    <ul>
+    <ul class="menu">
         {% get_menu as menu %}
         {% for m in menu %}
-            <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+            <li>
+                <a href="{% url m.url_name %}">{{ m.title }}</a>
+            </li>
         {% endfor %}
+        {% if user.is_authenticated %}
+            <li class="last"><a href="{% url 'users:profile' %}">{{ user.username }}</a> |
+                <form method="post" action="{% url 'users:logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Выйти</button>
+                </form>
+            </li>
+        {% else %}
+            <li class="last"><a href="{% url 'users:login' %}">Войти</a> | <a href="{% url 'users:register' %}">Регистрация</a>
+            </li>
+        {% endif %}
     </ul>
 </nav>
 
-<!-- Основной контент -->
-<main>
-    <section class="intro">
-        <h2>Добро пожаловать на CarWorld!</h2>
-        <p>Здесь вы найдете самые свежие новости об автомобилях, обзоры моделей и многое другое.</p>
-    </section>
 
-    <section class="popular-cars">
-        <h2>Модели</h2>
-        <div>
-            <!-- Content for popular cars -->
-        </div>
-    </section>
-</main>
-<div class="content-text">
-    {% block content %}
-    {% endblock %}
+<!-- Основной контент -->
+<div class="main-content">
+    <div class="content-text">
+        {% block content %}
+        {% endblock %}
+    </div>
 </div>
+
 <!-- Футер -->
 <footer>
-    <div class="container">
+    <div class="">
         <p>&copy; 2024 CarWorld. Все права защищены.</p>
         <p>Свяжитесь с нами: <a href="mailto:info@carworld.com">info@carworld.com</a></p>
     </div>

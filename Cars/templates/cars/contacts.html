@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <section class="contact-info    ">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, suggestions, or need assistance, feel free to reach out! We're here to help and would love to hear from you.</p>
+        <div class="contact-info">
+            <h3>Our Contacts</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@carworld.com">support@carworld.com</a></li>
+                <li><strong>Phone:</strong> +1 123 456 7890</li>
+                <li><strong>Address:</strong> 1234 Main Street, Car City, USA</li>
+                <li><strong>Working Hours:</strong> Mon–Fri: 9:00 AM – 6:00 PM</li>
+            </ul>
+        </div>
 
-</body>
-</html>
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="social-links">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+    </section>
+</main>
+{% endblock %}

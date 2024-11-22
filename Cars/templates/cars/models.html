@@ -1,15 +1,49 @@
 {% extends 'base.html' %}
-
+{% load car_tags %}
 {% block content %}
-    <ul class="list-articles">
-        {% for car in posts %}
-            <li>
-                <h3>{{ car.company }} {{ car.name }}</h3>
-                <p>{{ car.description }}</p>
-                {% if car.photo %}
-                    <img src="{{ car.photo.url }}" alt="{{ car.name }}">
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <table class="car-list">
+        <tr>
+            <!-- Column with categories and tags -->
+            <td valign="top" class="left-chapters">
+                <ul id="leftchapters">
+                    {% if cat_selected == 0 %}
+                        <li class="selected">All Categories</li>
+                    {% else %}
+                        <li><a href="{% url 'models' %}">All Categories</a></li>
+                    {% endif %}
+                    {% show_categories cat_selected %}
+                </ul>
+                <hr class="divider">
+                <ul id="leftchapters">
+                    {% if tag_selected == 0 %}
+                        <li class="selected">All Tags</li>
+                    {% else %}
+                        <li><a href="{% url 'models' %}">All Tags</a></li>
+                    {% endif %}
+                    {% show_tags %}
+                </ul>
+            </td>
+
+            <td class="car-items">
+                <table>
+                    <tr>
+                        {% for car in posts %}
+                            <td class="car-item">
+                                <a href="{% url 'aboutCar' car.slug %}" style="text-decoration: none;">
+                                    <h3>{{ car.company }} {{ car.name }}</h3>
+                                    <p>{{ car.description }}</p>
+                                </a>
+                                {% if car.photo %}
+                                    <p><img class="img-article-left" src="{{ car.photo.url }}"></p>
+                                {% endif %}
+                            </td>
+                            {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                                </tr><tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 {% endblock %}

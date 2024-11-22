@@ -5,7 +5,6 @@ from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.template.defaultfilters import title
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-from parso.python.tree import Class
 
 from users.forms import LoginUserForm, RegisterUserForm, ProfileUserForm, UserPasswordChangeForm
 

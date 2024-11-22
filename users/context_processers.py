@@ -1,4 +1,4 @@
-from cars.utils import menu
+from Cars.utils import menu
 
 
 def get_women_conext(request):

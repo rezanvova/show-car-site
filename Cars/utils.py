@@ -1,3 +1,5 @@
+from Cars.models import Categories
+
 menu = [{'title': "Главная", 'url_name': 'home'},
         {'title': "Модели", 'url_name': 'models'},
         {'title': "О нас", 'url_name': 'about'},
@@ -20,5 +22,7 @@ class DataMixin:
 
     def get_mixin_context(self, context, **kwargs):
         context['cat_selected'] = None
+        # context['tags'] = Categories.objects.all()
+        # context['categories'] = Categories.objects.all()
         context.update(kwargs)
         return context

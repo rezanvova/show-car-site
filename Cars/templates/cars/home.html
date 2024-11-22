@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <ul class="list-articles">
-        {% for car in posts %}
-            <li>
-                <h3>{{ car.company }} {{ car.name }}</h3>
-                <p>{{ car.description }}</p>
-                {% if car.photo %}
-                    <img src="{{ car.photo.url }}" alt="{{ car.name }}">
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <main>
+        <section class="intro">
+            <h2>Welcome to CarWorld!</h2>
+            <p>
+                Welcome to CarWorld — the ultimate platform for discovering the most popular and reliable cars.
+                We provide in-depth reviews, stunning photos, and detailed ratings to help you make the best choice for your next vehicle.
+                Explore a wide range of models, compare their features, and find the one that fits your needs perfectly.
+                Join CarWorld today and stay updated on the latest trends in the automotive industry!
+            </p>
+        </section>
+    </main>
 {% endblock %}

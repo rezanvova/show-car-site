@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="car-card">
+            <!-- Заголовок автомобиля -->
+            <div class="car-header">
+                <h1>{{ car.company }} {{ car.name }}</h1>
+            </div>
 
-</body>
-</html>
+            <!-- Фото автомобиля -->
+            {% if car.photo %}
+                <div class="car-photo">
+                    <img src="{{ car.photo.url }}" alt="{{ car.name }}">
+                </div>
+            {% endif %}
+
+            <!-- Описание автомобиля -->
+            <div class="car-description">
+                <p>{{ car.description }}</p>
+            </div>
+
+            <p>Тэги:</p>
+            {% for tag in tags %}
+                <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
+            {% endfor %}
+            <p>Общая оценка: {{ car.avg_rating }}</p>
+            <form method="post">
+                {% csrf_token action="" id="voteForm" %}
+                <label for="rating">Оценка:</label>
+                    <select name="rating" id="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit">Отправить</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
